@@ -1,12 +1,12 @@
-Tema #1 APD
-Desenarea paralela de curbe contur folosind algoritmul Marching Squares
+# Tema #1 APD - Desenarea paralelă de curbe contur folosind algoritmul Marching Squares
 
-Nume: Girnita Alexandra-Claudia
-Grupa: 332CC
+## Student: Girnița Alexandra-Claudia
+## Grupa: 332CC
 
-	Programul implementeaza marching squares algorithm paralelizat utilizand threaduri pentru imbunatatirea performantei.
-	Fiecare thread apeleaza threadFunction si primeste ca argument o structura de date pthread_args. Toate threadurile primesc pointeri catre aceleasi date: grid, scaled_image pentru a asigura distribuirea datelor intre toate hreadurile.
-	Programul asigura paralelizarea in metoda threadFunction echivalenta a metodelor rescale_image,sample_grid si march din varianta secventiala.
-	Pentru redimensionarea imaginii se seteaza un flag in main care este transmis prin intermediul structurii si seunt impartite fiecarui thread un numar de linii din imaginea initiala, astfel imbunatatind considerabil timpii de rulare pentru testele 6 si 7.
-	Construirea matricii grid este de asemenea paralelizata, fiecare thread calculeaza valorile pentru un numar de randuri din imagienea redimensionata, dupa care se cauta conturul care se potriveste si se actualizeaza imaginea.
-	
+### Descriere
+Acest proiect implementează algoritmul **Marching Squares** într-o manieră paralelizată, folosind thread-uri pentru a îmbunătăți performanța. Scopul principal este de a desena curbe contur într-un mod eficient, profitând de puterea de procesare paralelă.
+
+### Implementare
+- **Paralelizare**: Fiecare thread execută `threadFunction`, primind ca argument o structură de date `pthread_args`. Toate thread-urile accesează aceleași date (`grid`, `scaled_image`) pentru a asigura distribuirea eficientă a informațiilor.
+- **Rescalarea imaginii**: Se utilizează un flag în funcția `main` care este transmis thread-urilor prin structura menționată anterior. Astfel, fiecărui thread îi sunt alocate un număr de linii din imaginea inițială, optimizând timpii de execuție.
+- **Construirea grid-ului**: Procesul este, de asemenea, paralelizat, fiecare thread calculând valorile pentru un set de rânduri din imaginea redimensionată. După calcularea grid-ului, se identifică și se actualizează contururile corespunzătoare în imagine.
